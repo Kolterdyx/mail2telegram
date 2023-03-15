@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import email
 import imaplib
@@ -36,13 +37,22 @@ async def send_message(message, config: dict):
     msg = msg.replace("<", "\\<")
     msg = msg.replace(".", "\\.")
     msg = msg.replace("_", "\\_")
+    msg = msg.replace("(", "\\(")
+    msg = msg.replace(")", "\\)")
+    msg = msg.replace("+", "\\+")
 
-    await app.send_message(chat_id=config["telegram"]["chat_id"], text=msg, parse_mode=telegram.constants.ParseMode.MARKDOWN_V2)
+    try:
+        await app.send_message(chat_id=config["telegram"]["chat_id"], text=msg, parse_mode=telegram.constants.ParseMode.MARKDOWN_V2)
+    except Exception as e:
+        await app.send_message(chat_id=config["telegram"]["chat_id"], text=f"Error: {e}")
 
 
 def load_config():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', default='config.json')
+    args = parser.parse_args()
     # Load the config.json file.
-    with open('config.json') as f:
+    with open(args.config) as f:
         config = json.load(f)
     # Return the config dictionary.
     return config
