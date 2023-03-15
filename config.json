@@ -1,0 +1,12 @@
+{
+  "imap": {
+    "host": "imap.gmail.com",
+    "port": 993,
+    "email": "ciro.garcia.belmonte@gmail.com",
+    "password": "fmjongfuwyxrlhzm"
+  },
+  "telegram": {
+    "token": "5873292611:AAH8GtYajQ94Y-Xkj0hIFYMclkfpvoBkZys",
+    "chat_id": "1166777656"
+  }
+}
