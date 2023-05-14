@@ -40,6 +40,7 @@ async def send_message(message, config: dict):
     msg = msg.replace("(", "\\(")
     msg = msg.replace(")", "\\)")
     msg = msg.replace("+", "\\+")
+    msg = msg.replace("!", "\\!")
 
     try:
         await app.send_message(chat_id=config["telegram"]["chat_id"], text=msg, parse_mode=telegram.constants.ParseMode.MARKDOWN_V2)
