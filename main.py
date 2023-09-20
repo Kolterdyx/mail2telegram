@@ -3,8 +3,6 @@ import asyncio
 import email
 import imaplib
 import json
-import requests
-import urllib
 import telegram
 
 
