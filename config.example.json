@@ -1,0 +1,12 @@
+{
+  "imap": {
+    "host": "imap.gmail.com",
+    "port": 993,
+    "email": "user@example.com",
+    "password": "examplepass"
+  },
+  "telegram": {
+    "token": "mytoken",
+    "chat_id": "chatid"
+  }
+}
